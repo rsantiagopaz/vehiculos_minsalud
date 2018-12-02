@@ -4,7 +4,7 @@
 $servidor = "localhost";
 $usuario = "root";
 $password = "";
-$base = "vehiculos";
+$base = "vehiculos_minsalud";
 
 
 /*
