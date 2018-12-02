@@ -12,6 +12,7 @@
  * This is the main application class of your custom application "vehiculos"
  *
  * @asset(vehiculos/*)
+ * @asset(qx/icon/Tango/48/status/dialog-information.png)
  */
 qx.Class.define("vehiculos.Application",
 {
@@ -97,6 +98,20 @@ qx.Class.define("vehiculos.Application",
 	var loading = this.loading = new componente.comp.ui.ramon.image.Loading("vehiculos/loading66.gif");
 	
 	vehiculos.comp.rpc.Rpc.LOADING = loading;
+	
+	
+	
+	
+	var popupGrabado = this.popupGrabado = new qx.ui.popup.Popup(new qx.ui.layout.Basic());
+	popupGrabado.setPadding(10, 10, 10, 10);
+	popupGrabado.setPosition("bottom-center");
+	popupGrabado.setOffsetTop(-110);
+	popupGrabado.add(new qx.ui.basic.Atom("Grabado correctamente", "qx/icon/Tango/48/status/dialog-information.png"), {left: 0, top: 0});
+	popupGrabado.addListener("appear", function(e){
+		window.setTimeout(function(e){
+			popupGrabado.hide();
+		}, 2000);
+	});
       
       
       

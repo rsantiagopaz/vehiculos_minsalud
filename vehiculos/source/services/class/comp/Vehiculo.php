@@ -38,14 +38,12 @@ class class_Vehiculo extends class_Base
   	$sql = "UPDATE entsal SET estado='" . $estado . "', asunto=" . $asunto . ", diferido=" . $diferido . " WHERE id_entsal=" . $id_entsal;
   	$this->mysqli->query($sql);
   	
-  	$this->auditoria($sql, $id_entsal, "update_entsal");
   	
 
   	if ($estado == "A") $estado = "S";
   	$sql = "UPDATE vehiculo SET estado='" . $estado . "' WHERE id_vehiculo=" . $id_vehiculo;
   	$this->mysqli->query($sql);
   	
-  	$this->auditoria($sql, $id_vehiculo, "update_vehiculo");
   }
   
   
@@ -66,8 +64,6 @@ class class_Vehiculo extends class_Base
 	  	
 	  	$sql = "UPDATE movimiento SET total=" . $row->total . " WHERE id_movimiento=" . $id_movimiento;
 	  	$this->mysqli->query($sql);
-	  	
-	  	$this->auditoria($sql, $id_movimiento, "update_movimiento");
   	}
 
   	
@@ -77,8 +73,6 @@ class class_Vehiculo extends class_Base
   	
   	$sql = "UPDATE entsal SET total=" . $row->total . " WHERE id_entsal=" . $id_entsal;
   	$this->mysqli->query($sql);
-  	
-  	$this->auditoria($sql, $id_entsal, "update_entsal");
   	
   	
 
@@ -96,8 +90,6 @@ class class_Vehiculo extends class_Base
   	
   	$sql = "UPDATE vehiculo SET total=" . $row->total . " WHERE id_vehiculo=" . $id_vehiculo;
   	$this->mysqli->query($sql);
-  	
-  	$this->auditoria($sql, $id_vehiculo, "update_vehiculo");
   }
   
   
@@ -319,7 +311,7 @@ class class_Vehiculo extends class_Base
 		$sql = "UPDATE movimiento SET f_sal='" . $fecha . "', id_usuario_sal='" . $_SESSION['login']->usuario . "', total=0, estado='A' WHERE id_entsal=" . $p->id_entsal . " AND estado<>'A'";
 		$this->mysqli->query($sql);
 		
-		$this->auditoria($sql, $p->id_entsal, "update_movimiento");
+		$this->auditoria($sql, null, "update_movimiento");
 
 		$this->calcular_totales(null, $p->id_entsal);
 		$this->calcular_estados(null, $p->id_entsal);

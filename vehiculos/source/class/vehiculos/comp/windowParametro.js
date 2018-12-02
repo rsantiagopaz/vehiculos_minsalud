@@ -125,7 +125,8 @@ qx.Class.define("vehiculos.comp.windowParametro",
 	tableModelTipo_vehiculo.setEditable(true);
 	tableModelTipo_vehiculo.setColumnSortable(0, false);
 
-	var tblTipo_vehiculo = new vehiculos.comp.tableParametro(tableModelTipo_vehiculo, "tipo_vehiculo");
+	//var tblTipo_vehiculo = new vehiculos.comp.tableParametro(tableModelTipo_vehiculo, "tipo_vehiculo");
+	var tblTipo_vehiculo = new componente.comp.ui.ramon.table.tableParametro(tableModelTipo_vehiculo, "tipo_vehiculo");
 	
 	gbxTipo_vehiculo.add(tblTipo_vehiculo);
 	
@@ -141,7 +142,8 @@ qx.Class.define("vehiculos.comp.windowParametro",
 	tableModelTipo_incidente.setEditable(true);
 	tableModelTipo_incidente.setColumnSortable(0, false);
 
-	var tblTipo_incidente = new vehiculos.comp.tableParametro(tableModelTipo_incidente, "tipo_incidente");
+	//var tblTipo_incidente = new vehiculos.comp.tableParametro(tableModelTipo_incidente, "tipo_incidente");
+	var tblTipo_incidente = new componente.comp.ui.ramon.table.tableParametro(tableModelTipo_incidente, "tipo_incidente");
 	
 	gbxTipo_incidente.add(tblTipo_incidente);
 	
@@ -157,7 +159,8 @@ qx.Class.define("vehiculos.comp.windowParametro",
 	tableModelTipo_reparacion.setEditable(true);
 	tableModelTipo_reparacion.setColumnSortable(0, false);
 
-	var tblTipo_reparacion = new vehiculos.comp.tableParametro(tableModelTipo_reparacion, "tipo_reparacion");
+	//var tblTipo_reparacion = new vehiculos.comp.tableParametro(tableModelTipo_reparacion, "tipo_reparacion");
+	var tblTipo_reparacion = new componente.comp.ui.ramon.table.tableParametro(tableModelTipo_reparacion, "tipo_reparacion");
 	
 	gbxTipo_reparacion.add(tblTipo_reparacion);
 	

@@ -152,6 +152,10 @@ qx.Class.define("vehiculos.comp.windowVehiculo",
 	this.add(formViewVehiculo, {left: 0, top: 45});
 	
 	
+
+	
+	
+	
 	var btnAceptar = new qx.ui.form.Button("Grabar");
 	btnAceptar.addListener("execute", function(e){
 		if (formInfoVehiculo.validate()) {
@@ -162,6 +166,9 @@ qx.Class.define("vehiculos.comp.windowVehiculo",
 			
 			rpc.addListener("completed", function(e){
 				var data = e.getData();
+				
+				application.popupGrabado.placeToWidget(this, true);
+				application.popupGrabado.show();
 
 				if (p.model.id_vehiculo == "0") {
 					lstVehiculo.fireDataEvent("changeSelection", []);

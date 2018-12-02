@@ -218,10 +218,13 @@ qx.Class.define("vehiculos.comp.windowChofer",
 		}
 	));
 	
-	validationManager.addListener("complete", function(e){
+	validationManager.addListener("complete", qx.lang.Function.bind(function(e){
 		if (validationManager.getValid()) {
 			var p = {};
 			p.model = qx.util.Serializer.toNativeObject(controllerForm.getModel());
+			
+			application.popupGrabado.placeToWidget(this, true);
+			application.popupGrabado.show();
 			
 			if (p.model.id_chofer == "0") {
 				lstChofer.fireDataEvent("changeSelection", []);
@@ -234,7 +237,7 @@ qx.Class.define("vehiculos.comp.windowChofer",
 		} else {
 			validationManager.getInvalidFormItems()[0].focus();
 		}
-	});
+	}, this));
 	
 	
 	

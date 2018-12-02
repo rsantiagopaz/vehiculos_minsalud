@@ -36,10 +36,14 @@ class class_Chofer extends class_Base
 		
 	if ($p->model->id_chofer == "0") {
 		$sql = "INSERT chofer SET " . $set . ", id_parque=" . $_SESSION['parque']->id_parque . ", f_inscripcion=NOW()";
-		$this->mysqli->query($sql);		
+		$this->mysqli->query($sql);
+		
+		$this->auditoria($sql, $this->mysqli->insert_id, "insert_chofer");
 	} else {
 		$sql = "UPDATE chofer SET " . $set . " WHERE id_chofer=" . $p->model->id_chofer;
 		$this->mysqli->query($sql);
+		
+		$this->auditoria($sql, $p->model->id_chofer, "update_chofer");
 	}
   }
   
@@ -53,10 +57,14 @@ class class_Chofer extends class_Base
 		
 	if ($p->model->id_incidente == "0") {
 		$sql = "INSERT incidente SET " . $set;
-		$this->mysqli->query($sql);		
+		$this->mysqli->query($sql);
+		
+		$this->auditoria($sql, $this->mysqli->insert_id, "insert_incidente");
 	} else {
 		$sql = "UPDATE incidente SET " . $set . " WHERE id_incidente=" . $p->model->id_incidente;
 		$this->mysqli->query($sql);
+		
+		$this->auditoria($sql, $p->model->id_incidente, "update_incidente");
 	}
   }
   
