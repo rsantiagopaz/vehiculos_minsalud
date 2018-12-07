@@ -18,8 +18,11 @@ qx.Class.define("vehiculos.comp.windowEnt",
 	this.setLayout(new qx.ui.layout.Canvas());
 
 	this.addListenerOnce("appear", function(e){
-		this.setCaption("Entrada, " + vehiculo.nro_patente + "  " + vehiculo.marca);
-		txtKilo.focus();
+		var timer = qx.util.TimerManager.getInstance();
+		timer.start(function() {
+			this.setCaption("Entrada, " + vehiculo.nro_patente + "  " + vehiculo.marca);
+			txtKilo.focus();
+		}, null, this, null, 50);
 	}, this);
 	
 	

@@ -12,6 +12,7 @@
  * This is the main application class of your custom application "vehiculos"
  *
  * @asset(vehiculos/*)
+ * @asset(qx/decoration/Simple/arrows/down.gif) 
  * @asset(qx/icon/Tango/48/status/dialog-information.png)
  */
 qx.Class.define("vehiculos.Application",

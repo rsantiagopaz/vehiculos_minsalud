@@ -9,7 +9,10 @@ qx.Class.define("vehiculos.comp.pageParticular",
 	this.setLayout(new qx.ui.layout.Grow());
 	
 	this.addListenerOnce("appear", function(e){
-		cboVehiculo.focus();
+		var timer = qx.util.TimerManager.getInstance();
+		timer.start(function() {
+			cboVehiculo.focus();
+		}, null, this, null, 50);
 	});
 	
 	this.addListener("appear", function(e){

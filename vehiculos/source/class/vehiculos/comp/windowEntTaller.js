@@ -18,8 +18,11 @@ qx.Class.define("vehiculos.comp.windowEntTaller",
 	this.setLayout(new qx.ui.layout.Canvas());
 
 	this.addListenerOnce("appear", function(e){
-		this.setCaption("Entrada a taller, " + vehiculo.nro_patente + "  " + vehiculo.marca);
-		cboTaller.focus();
+		var timer = qx.util.TimerManager.getInstance();
+		timer.start(function() {
+			this.setCaption("Entrada a taller, " + vehiculo.nro_patente + "  " + vehiculo.marca);
+			cboTaller.focus();
+		}, null, this, null, 50);
 	}, this);
 	
 	

@@ -17,7 +17,10 @@ qx.Class.define("vehiculos.comp.windowAsunto",
 	this.setResizable(false, false, false, false);
 
 	this.addListenerOnce("appear", function(e){
-		txtAsunto.focus();
+		var timer = qx.util.TimerManager.getInstance();
+		timer.start(function() {
+			txtAsunto.focus();
+		}, null, this, null, 50);
 	}, this);
 	
 	
