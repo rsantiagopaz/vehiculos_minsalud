@@ -749,6 +749,8 @@ qx.Class.define("vehiculos.comp.pageParticular",
 			
 			rowDataMovimiento = tableModelMovimiento.getRowData(tblMovimiento.getFocusedRow());
 			
+			tableModelSal.setDataAsMapArray([], true);
+			
 			btnAsunto.setEnabled(rowDataMovimiento.estado == "S" && rowDataMovimiento.documentacion_id == null);
 			btnAnularEntTaller.setEnabled(rowDataMovimiento.estado == "E");
 			btnImprimirEntTaller.setEnabled(rowDataMovimiento.estado != "A");
