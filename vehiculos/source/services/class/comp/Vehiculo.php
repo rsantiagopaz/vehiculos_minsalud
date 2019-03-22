@@ -415,6 +415,27 @@ class class_Vehiculo extends class_Base
   		$error->SetError(0, "duplicado");
   		return $error;
   	} else {
+		$this->mysqli->query("START TRANSACTION");
+		
+		
+
+		
+  		$sql = "SELECT COD_VEHICULO FROM `017`.vehiculos WHERE NRO_PAT='" . $p->model->nro_patente . "'";
+  		$rsViejo = $this->mysqli->query($sql);
+  		if ($rsViejo->num_rows > 0) {
+  			$rowViejo = $rsViejo->fetch_object();
+  			
+	  		$sql = "UPDATE `017`.vehiculos SET MARCA='" . $p->model->marca . "' WHERE COD_VEHICULO=" . $rowViejo->COD_VEHICULO;
+	  		$this->mysqli->query($sql);
+  		} else {
+	  		$sql = "INSERT `017`.vehiculos SET MARCA='" . $p->model->marca . "', NRO_PAT='" . $p->model->nro_patente . "'";
+	  		$this->mysqli->query($sql);
+  		}
+		
+		
+		
+		
+
 		$set = $this->prepararCampos($p->model, "vehiculo");
 	  		
 		if ($p->model->id_vehiculo == "0") {
@@ -429,6 +450,8 @@ class class_Vehiculo extends class_Base
 	  		
 	  		$this->auditoria($sql, $p->model->id_vehiculo, "update_vehiculo");
 		}
+  		
+  		$this->mysqli->query("COMMIT");
   	}
   }
   
