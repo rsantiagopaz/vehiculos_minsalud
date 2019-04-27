@@ -60,7 +60,13 @@ class class_Vehiculo extends class_Base
   	if (! is_null($id_movimiento)) {
 	  	$sql = "SELECT id_movimiento, SUM(total) AS total FROM reparacion WHERE id_movimiento=" . $id_movimiento . " GROUP BY id_movimiento";
 	  	$rs = $this->mysqli->query($sql);
-	  	$row = $rs->fetch_object();
+	  	if ($rs->num_rows == 0) {
+	  		$row = new stdClass;
+	  		$row->total = 0;
+	  		
+	  	} else {
+	  		$row = $rs->fetch_object();
+	  	}
 	  	
 	  	$sql = "UPDATE movimiento SET total=" . $row->total . " WHERE id_movimiento=" . $id_movimiento;
 	  	$this->mysqli->query($sql);
