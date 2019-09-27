@@ -234,6 +234,7 @@ class class_Vehiculo extends class_Base
   public function method_leer_movimiento($params, $error) {
   	$p = $params[0];
   	
+  	/*
 	function functionAux1(&$row, $key) {
 		$row->kilo = (float) $row->kilo;
 		$row->total = (float) $row->total;
@@ -243,9 +244,18 @@ class class_Vehiculo extends class_Base
 		
 		$row->bandera_estado = ($row->estado == "A") ? -1 : 0;
 	};
+	*/
   	
   	$opciones = new stdClass;
-  	$opciones->functionAux = functionAux1;
+  	$opciones->functionAux = function (&$row, $key) {
+		$row->kilo = (float) $row->kilo;
+		$row->total = (float) $row->total;
+		
+		if ($row->estado == "D") $row->total = "Diferido";
+		if ($row->estado == "A") $row->total = "Anulado";
+		
+		$row->bandera_estado = ($row->estado == "A") ? -1 : 0;
+	};
 	
 	
 	$sql = "SELECT * FROM (";
@@ -394,6 +404,7 @@ class class_Vehiculo extends class_Base
   public function method_leer_entsal($params, $error) {
   	$p = $params[0];
   	
+  	/*
 	function functionAux1(&$row, $key) {
 		$row->kilo = (float) $row->kilo;
 		$row->total = (float) $row->total;
@@ -402,9 +413,17 @@ class class_Vehiculo extends class_Base
 		
 		$row->bandera_estado = ($row->estado == "A") ? -1 : 0;
 	};
+	*/
   	
   	$opciones = new stdClass;
-  	$opciones->functionAux = functionAux1;
+  	$opciones->functionAux = function (&$row, $key) {
+		$row->kilo = (float) $row->kilo;
+		$row->total = (float) $row->total;
+		
+		if ($row->estado == "A") $row->total = "Anulado";
+		
+		$row->bandera_estado = ($row->estado == "A") ? -1 : 0;
+	};
   	
 	$sql = "SELECT entsal.*, CONCAT(unipresu.nombre, ' - ', REPLACE(unipresu.codigo, '-', '')) AS unipresu FROM entsal LEFT JOIN unipresu USING(cod_up) WHERE id_vehiculo=" . $p->id_vehiculo . " ORDER BY f_ent DESC";
 	

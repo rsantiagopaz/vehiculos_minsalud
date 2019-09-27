@@ -96,6 +96,12 @@ qx.Class.define("vehiculos.comp.pageParticular",
 					
 				});
 				
+				this.rpc.addListener("failed", function(e){
+					var data = e.getData();
+					
+					//alert(qx.lang.Json.stringify(data, null, 2));
+				});
+				
 				this.opaqueCallRef = this.rpc.callAsyncListeners(false, "leer_vehiculo", p);
 				
 			}, null, this, null, 200);
@@ -144,6 +150,13 @@ qx.Class.define("vehiculos.comp.pageParticular",
 					tblEntsal.buscar("id_entsal", id_entsal);
 					tblEntsal.focus();
 				}
+			});
+			
+			this.rpc.addListener("failed", function(e){
+				var data = e.getData();
+				
+				//alert(qx.lang.Json.stringify(data, null, 2));
+
 			});
 			
 			this.opaqueCallRef = this.rpc.callAsyncListeners(false, "leer_entsal", p);

@@ -66,7 +66,7 @@ define( "defaultAccessibility", "public" );
  */
 if ( ! defined("handleQooxdooDates") )
 {
-  define( "handleQooxdooDates", true );
+  define( "handleQooxdooDates", false );
 }
 
 ?>
