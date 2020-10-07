@@ -98,7 +98,7 @@ qx.Class.define("vehiculos.comp.windowAsunto",
 	
 	var btnAceptar = new qx.ui.form.Button("Aceptar");
 	btnAceptar.addListener("execute", function(e){
-		if (txtDocumento.getValue() != "") {
+		if (txtAsunto.getValue() != "") {
 			var p = {};
 			p.id_movimiento = rowDataMovimiento.id_movimiento;
 			p.documentacion_id = txtAsunto.getValue();

@@ -153,11 +153,17 @@ qx.Class.define("vehiculos.comp.windowChofer",
 	var aux = new qx.ui.form.SelectBox();
 	aux.add(new qx.ui.form.ListItem("Profesional", null, "1"));
 	aux.add(new qx.ui.form.ListItem("A", null, "2"));
+	aux.add(new qx.ui.form.ListItem("A3", null, "8"));
 	aux.add(new qx.ui.form.ListItem("B", null, "3"));
+	aux.add(new qx.ui.form.ListItem("B1", null, "9"));
+	aux.add(new qx.ui.form.ListItem("B2", null, "10"));
 	aux.add(new qx.ui.form.ListItem("C", null, "4"));
-	aux.add(new qx.ui.form.ListItem("D3", null, "5"));
-	aux.add(new qx.ui.form.ListItem("E", null, "6"));
 	aux.add(new qx.ui.form.ListItem("D", null, "7"));
+	aux.add(new qx.ui.form.ListItem("D2", null, "11"));
+	aux.add(new qx.ui.form.ListItem("D3", null, "5"));
+	aux.add(new qx.ui.form.ListItem("D4", null, "12"));
+	aux.add(new qx.ui.form.ListItem("E", null, "6"));
+
 	form.add(aux, "Categoria", null, "id_categoria", null, {item: {row: 10, column: 1, colSpan: 4}});
 	
 	
