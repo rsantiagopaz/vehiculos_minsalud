@@ -80,7 +80,7 @@ qx.Class.define("vehiculos.comp.windowAsunto",
 			txtIniciador.setValue("");
 			txtTexto.setValue("");
 			
-			if (data.message = "documentacion_id") {
+			if (data.message == "documentacion_id") {
 				txtAsunto.setValid(false);
 				txtAsunto.focus();
 				
@@ -112,7 +112,7 @@ qx.Class.define("vehiculos.comp.windowAsunto",
 			rpc.addListener("failed", function(e){
 				var data = e.getData();
 				
-				if (data.message = "documentacion_id") {
+				if (data.message == "documentacion_id") {
 					txtAsunto.setValid(false);
 					txtAsunto.focus();
 					

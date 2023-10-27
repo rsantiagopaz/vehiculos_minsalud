@@ -546,8 +546,14 @@ class class_Vehiculo extends class_Base
 	$sql = "SELECT 001_documentaciones.*, 001_documentaciones_tipos.documentacion_tipo FROM 001_documentaciones INNER JOIN 001_documentaciones_tipos USING(documentacion_tipo_id) WHERE documentacion_id='" . $p->documentacion_id . "'";
 	$rs = $this->mysqli->query($sql);
 	if ($rs->num_rows == 0) {
+		/*
   		$error->SetError(0, "documentacion_id");
   		return $error;
+  		*/
+  		
+		$row = new stdClass;
+		
+		return $row;
 	} else {
 		$row = $rs->fetch_object();
 		$documento = (($row->documentacion_tipo_id=="1") ? $row->expediente_numero . "-" . $row->expediente_codigo . "-" . $row->expediente_ano : $row->documentacion_numero . "/" . $row->documentacion_numero_ano);
@@ -569,7 +575,8 @@ class class_Vehiculo extends class_Base
   	if (is_null($row->documentacion_id)) {
 		$sql = "SELECT documentacion_id FROM 001_documentaciones WHERE documentacion_id='" . $p->documentacion_id . "'";
 		$rs = $this->mysqli->query($sql);
-		if ($rs->num_rows == 0) {
+		//if ($rs->num_rows == 0) {
+		if (false) {
 	  		$error->SetError(0, "documentacion_id");
 	  		return $error;
 		} else {
