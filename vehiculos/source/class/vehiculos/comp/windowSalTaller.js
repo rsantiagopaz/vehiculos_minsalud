@@ -32,7 +32,7 @@ qx.Class.define("vehiculos.comp.windowSalTaller",
 
 	
 	
-	var txtKilo = new componente.comp.ui.ramon.spinner.Spinner(0, 0, 10000000);
+	var txtKilo = new componente.comp.ui.ramon.spinner.Spinner(0, 0, 1000000000);
 	txtKilo.setRequired(true);
 	txtKilo.setWidth(80);
 	txtKilo.setNumberFormat(application.numberformatEntero);
@@ -65,7 +65,7 @@ qx.Class.define("vehiculos.comp.windowSalTaller",
 		if (lstReparacion.isSelectionEmpty()) throw new qx.core.ValidationError("Validation Error", "Debe seleccionar tipo reparación");
 	}, "id_tipo_reparacion");
 	
-	var txtCosto = new componente.comp.ui.ramon.spinner.Spinner(0, 0, 1000000);
+	var txtCosto = new componente.comp.ui.ramon.spinner.Spinner(0, 0, 1000000000);
 	txtCosto.setMaxWidth(80);
 	txtCosto.setNumberFormat(application.numberformatMontoEn);
 	txtCosto.getChildControl("upbutton").setVisibility("excluded");

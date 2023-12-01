@@ -32,7 +32,7 @@ qx.Class.define("vehiculos.comp.windowEnt",
 	
 
 	
-	var txtKilo = new componente.comp.ui.ramon.spinner.Spinner(0, 0, 10000000);
+	var txtKilo = new componente.comp.ui.ramon.spinner.Spinner(0, 0, 1000000000);
 	//txtKilo.setRequired(true);
 	//txtKilo.setWidth(80);
 	txtKilo.setNumberFormat(application.numberformatEntero);

@@ -540,7 +540,7 @@ qx.Class.define("vehiculos.comp.pageParticular",
 	aux.setBackgroundColor("#ffffc0");
 	formInfoVehiculo.add(aux, "Dependencia", null, "dependencia");
 	
-	aux = new qx.ui.form.Spinner(0, 0, 1000000);
+	aux = new qx.ui.form.Spinner(0, 0, 1000000000);
 	aux.setEditable(false);
 	aux.setFocusable(false);
 	aux.setNumberFormat(application.numberformatMontoEs);
