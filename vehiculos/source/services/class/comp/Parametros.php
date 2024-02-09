@@ -139,6 +139,20 @@ class class_Parametros extends class_Base
 	
 	return $resultado;
   }
+
+  public function method_escribir_contrasena($params, $error) {
+	$p = $params[0];
+	
+  $sql = "SELECT * FROM _usuarios WHERE SYSusuario='" . $p->model->usuario . "' AND SYSpassword=MD5('" . $p->model->password . "')";
+  $rs = $this->mysqli->query($sql);
+  if ($rs->num_rows > 0) {
+		$sql = "UPDATE _usuarios SET SYSpassword=MD5('" . $p->model->passnueva . "') WHERE SYSusuario='" . $p->model->usuario . "'";
+		$this->mysqli->query($sql);
+  } else {
+	  $error->SetError(0, "password");
+	  return $error;
+  }
+}
 }
 
 ?>

@@ -237,6 +237,17 @@ qx.Class.define("vehiculos.Application",
       
     
       var mnuSesion = new qx.ui.menu.Menu();
+
+      var btnContrasena = new qx.ui.menu.Button("Cambiar contraseña");
+      btnContrasena.addListener("execute", function(e){
+        var win = new vehiculos.comp.windowContrasena();
+        win.setModal(true);
+        doc.add(win);
+        win.center();
+        win.open();
+      });
+      mnuSesion.add(btnContrasena);
+      mnuSesion.addSeparator();
     
       var btnCerrar = new qx.ui.menu.Button("Cerrar");
       btnCerrar.addListener("execute", function(e){
